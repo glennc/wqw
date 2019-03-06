@@ -1,0 +1,22 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Add a message to the queue</h1>
+</div>
+<div>
+    @if (!string.IsNullOrEmpty(Model.Message))
+    {
+        <div id="alert" class="alert alert-info" role="alert"><p>@Model.Message</p></div>
+    }
+
+    <form class="form-inline" method="POST">
+        <label class="sr-only" for="inlineFormInput">Name</label>
+        <input type="text" asp-for="Data" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" placeholder="Message Text...">
+
+        <button type="submit" onclick="$('.alert').alert('close')" class="btn btn-primary">Submit</button>
+    </form>
+</div>
